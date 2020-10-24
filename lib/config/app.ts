@@ -29,7 +29,11 @@ class App {
    }
 
    private mongoSetup(): void {
-      mongoose.connect(this.mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
+     mongoose.connect('mongodb+srv://admin:admin99@clusterdb.ieh8r.mongodb.net/<members>?retryWrites=true&w=majority', {
+         useNewUrlParser: true
+         })
+         .then(db => console.log('db connected'))
+         .catch(err => console.log(err));
    }
 
 }
